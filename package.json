@@ -1,0 +1,32 @@
+{
+  "name": "website",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "parcel src/index.pug",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/polyfill": "^7.2.5",
+    "@fortawesome/fontawesome-free": "^5.6.3",
+    "@vue/component-compiler-utils": "^2.5.0",
+    "devicon": "https://github.com/konpa/devicon.git",
+    "parcel-bundler": "^1.11.0",
+    "pug": "^2.0.3",
+    "stylus": "^0.54.5",
+    "vue-template-compiler": "^2.5.22"
+  },
+  "dependencies": {
+    "dayjs": "^1.8.0",
+    "destyle.css": "^1.0.5",
+    "highlightjs": "^9.12.0",
+    "marked": "^0.6.0",
+    "vue": "^2.5.22",
+    "vue-hot-reload-api": "^2.3.1",
+    "vue-router": "^3.0.2"
+  }
+}
