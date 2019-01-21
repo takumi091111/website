@@ -1,14 +1,14 @@
 {
   "name": "website",
   "version": "1.0.0",
-  "description": "",
+  "description": "My Website",
   "main": "index.js",
   "scripts": {
     "start": "parcel src/index.pug",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "",
+  "author": "Asamac",
   "license": "ISC",
   "devDependencies": {
     "@babel/polyfill": "^7.2.5",
