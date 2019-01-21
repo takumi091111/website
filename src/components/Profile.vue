@@ -2,7 +2,7 @@
   .profile
     section
       figure
-        img(src="../../../../../Pictures/icons/avatar2019_tp.png")
+        img(src="../images/avatar.png")
         h1 Asamac
       hr
       .social-icons
