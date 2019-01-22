@@ -19,8 +19,8 @@ export default {
       default: ''
     },
     createdAt: {
-      type: Date,
-      default: new Date()
+      type: String,
+      default: ''
     },
     summary: {
       type: String,
