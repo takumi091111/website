@@ -62,6 +62,7 @@ export default {
   justify-content left
   align-items center
   flex-direction column
+  width 100%
   .title
     width 100%
     padding 30px 0

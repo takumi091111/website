@@ -26,3 +26,8 @@ export default {
   }
 }
 </script>
+
+<style lang="stylus" scoped>
+.entry-list
+  width 100%
+</style>

@@ -14,10 +14,3 @@ export default {
   }
 }
 </script>
-
-<style lang="stylus" scoped>
-#home
-  display flex
-  justify-content center
-  align-items center
-</style>

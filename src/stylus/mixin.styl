@@ -1,10 +1,14 @@
 BREAK_POINTS = {
   SP: 480px
   TABLET: 768px
+  DESKTOP: 1024px
 }
 sp()
   @media screen and (max-width: BREAK_POINTS.SP)
     {block}
 tablet()
   @media screen and (max-width: BREAK_POINTS.TABLET)
+    {block}
+desktop()
+  @media screen and (max-width: BREAK_POINTS.DESKTOP)
     {block}

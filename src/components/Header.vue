@@ -47,21 +47,25 @@ header
           background-color #252627
         color #252627
         background-color #F4F4E8
-        width 100px
+        width 130px
         height 40px
         margin 10px 50px
         border-radius 15px
         line-height 40px
         list-style none
         transition all 0.1s
+        +tablet()
+          margin 10px 30px
         a
           outline: none
           display inline-block
           width 100%
           height 100%
-          font-size 18px
+          font-size 1.5em
           font-weight 800
           letter-spacing 1px
           text-align center
           vertical-align top
+          +tablet()
+            font-size 1.3em
 </style>
