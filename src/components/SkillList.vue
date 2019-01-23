@@ -15,6 +15,9 @@
 import Skill from './Skill'
 
 export default {
+  components: {
+    Skill
+  },
   props: {
     skills: {
       type: Array,
@@ -26,9 +29,6 @@ export default {
         }
       ]
     }
-  },
-  components: {
-    Skill
   }
 }
 </script>

@@ -9,7 +9,7 @@
 <script>
 export default {
   props: {
-    MobileMenuVisible: {
+    mobileMenuVisible: {
       type: Boolean,
       default: null
     }
@@ -25,9 +25,12 @@ export default {
   },
   computed: {
     mobileMenuClass: function () {
-      if (this.MobileMenuVisible === null) return ''
-      if (this.MobileMenuVisible) return 'slideIn'
-      if (!this.MobileMenuVisible) return 'slideOut'
+      if (this.mobileMenuVisible === null) return ''
+      if (this.mobileMenuVisible) {
+        return 'slideIn'
+      } else {
+        return 'slideOut'
+      }
     }
   }
 }

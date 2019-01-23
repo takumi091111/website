@@ -1,12 +1,12 @@
 <template lang="pug">
   button.hamburger-button(@click="hamburgerButtonClicked")
-    i.fas(:class="MobileMenuVisible ? 'fa-times' : 'fa-bars'")
+    i.fas(:class="mobileMenuVisible ? 'fa-times' : 'fa-bars'")
 </template>
 
 <script>
 export default {
   props: {
-    MobileMenuVisible: {
+    mobileMenuVisible: {
       type: Boolean,
       default: null
     }
@@ -19,7 +19,6 @@ export default {
   }
 }
 </script>
-
 
 <style lang="stylus" scoped>
 @import '../stylus/mixin.styl'
