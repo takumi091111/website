@@ -37,7 +37,6 @@ export default {
 @import '../stylus/mixin.styl'
 
 .skill-list
-  box-shadow 0 5px 10px 0 rgba(37, 38, 39, 0.25)
   border-radius 30px
   margin 30px 0
   +sp()
@@ -59,5 +58,8 @@ export default {
     justify-content center
     align-items center
     padding 20px 0
-    border-radius 20px
+    border-left 3px solid #E0DAC9
+    border-right 3px solid #E0DAC9
+    border-bottom 3px solid #E0DAC9
+    border-radius 0 0 20px 20px
 </style>

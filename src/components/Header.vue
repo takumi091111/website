@@ -71,7 +71,7 @@ header
     top 0
     min-height 60px
     max-height 240px
-    box-shadow 0 1px 3px 0 rgba(106, 98, 98, 0.25)
+    border-bottom 3px solid #E0DAC9
     overflow hidden
   nav
     +sp()

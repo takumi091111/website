@@ -40,20 +40,19 @@ export default {
 
 .entry-list-item
   &:hover
-    border 3px solid #E0DAC9
+    background-color #E0DAC9
   display flex
   flex-direction column
+  color #252627
   padding 20px
   margin 20px 0
-  border 3px solid #F4F4E8
-  box-shadow 0 1px 5px 0 rgba(106, 98, 98, 0.25)
+  border 3px solid #E0DAC9
   border-radius 10px
   outline none
-  transition border 0.2s
+  transition all 0.2s
   h1
     +sp()
       font-size 1.2em
-    color #252627
     font-size 1.5em
     font-weight bold
     text-align justify
