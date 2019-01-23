@@ -70,7 +70,7 @@ export default {
     z-index -1
     h1
       +sp()
-        font-size 1.5em
+        font-size 1.4em
       &::after
         content ''
         position absolute
@@ -81,7 +81,7 @@ export default {
         background-color #E0DAC9
         border-radius 10px
       position relative
-      font-size 2em
+      font-size 1.8em
       font-weight bold
       padding 15px 0
     .date
@@ -98,7 +98,7 @@ export default {
     }
     >>> h1
       +sp()
-        font-size 1.5em
+        font-size 1.4em
       &::after
         content ''
         position absolute
@@ -110,7 +110,7 @@ export default {
         border-radius 10px
         margin-bottom 20px
       position relative
-      font-size 2em
+      font-size 1.8em
       font-weight bold
       padding-bottom 40px
     >>> h1:nth-child(n+3)
@@ -118,12 +118,10 @@ export default {
     >>> h2
       +sp()
         font-size 1.2em
-      font-size 1.5em
+      font-size 1.4em
       font-weight bold
     >>> p
-      +sp()
-        font-size 1em
-      font-size 1.1em
+      font-size 1em
     >>> a
       text-decoration underline
     >>> blockquote
