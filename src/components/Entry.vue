@@ -67,6 +67,7 @@ export default {
     width 100%
     padding 30px 0
     color #252627
+    z-index -1
     h1
       +sp()
         font-size 1.5em
