@@ -138,7 +138,7 @@ export default {
       overflow-x auto
       margin 20px 0
     >>> code
-      font-family 'Fira Mono', 'M PLUS Rounded 1c', sans-serif
+      font-family 'Fira Mono', 'M PLUS Rounded 1c', monospace
       font-variant-ligatures normal
       background-color #282828
       color #ebdbb2
