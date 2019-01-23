@@ -8,7 +8,7 @@
       :mobile-menu-visible="isMobileMenuVisible"
       @menu-item-click="isMobileMenuVisible = false"
     )
-    transition(name="fade" mode="out-in")
+    transition(name="fade" mode="out-in" appear)
       router-view
     Footer
 </template>
