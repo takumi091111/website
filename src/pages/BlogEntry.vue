@@ -1,5 +1,6 @@
 <template lang="pug">
   VPage#entry
+    Spinner(:is-loading="isLoading")
     transition(name="fade")
       Entry(
         :title="entry.fields.title"
@@ -11,12 +12,14 @@
 
 <script>
 import VPage from '../components/VPage'
+import Spinner from '../components/Spinner'
 import Entry from '../components/Entry'
 import Api from '../js/api'
 
 export default {
   components: {
     VPage,
+    Spinner,
     Entry
   },
   data () {
@@ -30,7 +33,8 @@ export default {
           title: '',
           body: ''
         }
-      }
+      },
+      isLoading: false
     }
   },
   created () {
@@ -38,7 +42,9 @@ export default {
   },
   methods: {
     fetchEntry: async function (id) {
+      this.isLoading = true
       this.entry = await Api.fetchEntry(id)
+      this.isLoading = false
     }
   }
 }
