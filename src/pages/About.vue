@@ -1,25 +1,16 @@
 <template lang="pug">
   VPage#about
-    .section
-      .heading
-        h1 SKILLS
-      .content
-        Skill(
-          v-for="skill in skills"
-          :icon="skill.icon"
-          :caption="skill.caption"
-          :summary="skill.summary"
-        )
+    SkillList(:skills="skills")
 </template>
 
 <script>
 import VPage from '../components/VPage'
-import Skill from '../components/Skill'
+import SkillList from '../components/SkillList'
 
 export default {
   components: {
     VPage,
-    Skill
+    SkillList
   },
   data () {
     return {
