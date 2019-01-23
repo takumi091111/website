@@ -12,7 +12,11 @@
 </template>
 
 <style lang="stylus" scoped>
+@import '../stylus/mixin.styl'
+
 .profile
+  +sp()
+    padding 30px
   display flex
   justify-content center
   align-items center
@@ -32,6 +36,8 @@
         width 50%
         transition transform 0.3s
       h1
+        +sp()
+          font-size 3em
         color #252627
         font-size 3.5em
         font-weight 800
@@ -49,6 +55,8 @@
       align-items center
       padding 20px 0
       a
+        +sp()
+          font-size 2.3em
         &:hover
           transform: rotate(24deg)
         color #252627
