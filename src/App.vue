@@ -1,7 +1,13 @@
 <template lang="pug">
   #app
-    HamburgerMenu
-    Header
+    HamburgerMenu(
+      :mobile-menu-visible="isMobileMenuVisible"
+      @hamburger-button-click="toggleMobileMenu"
+    )
+    Header(
+      :mobile-menu-visible="isMobileMenuVisible"
+      @menu-item-click="isMobileMenuVisible = false"
+    )
     transition(name="fade" mode="out-in")
       router-view
     Footer
@@ -17,6 +23,20 @@ export default {
     HamburgerMenu,
     Header,
     Footer
+  },
+  data () {
+    return {
+      isMobileMenuVisible: null
+    }
+  },
+  methods: {
+    toggleMobileMenu: function () {
+      if (this.isMobileMenuVisible === null) {
+        this.isMobileMenuVisible = true
+      } else {
+        this.isMobileMenuVisible = !this.isMobileMenuVisible
+      }
+    }
   }
 }
 </script>
