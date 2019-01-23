@@ -47,11 +47,13 @@ export default {
   100%
     min-height 60px
 .slideIn
-  animation slideIn 0.5s cubic-bezier(0.645, 0.045, 0.355, 1)
-  animation-fill-mode forwards
+  +sp()
+    animation slideIn 0.5s cubic-bezier(0.645, 0.045, 0.355, 1)
+    animation-fill-mode forwards
 .slideOut
-  animation slideOut 0.5s cubic-bezier(0.645, 0.045, 0.355, 1)
-  animation-fill-mode forwards
+  +sp()
+    animation slideOut 0.5s cubic-bezier(0.645, 0.045, 0.355, 1)
+    animation-fill-mode forwards
 
 header
   display flex

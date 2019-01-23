@@ -6,7 +6,7 @@
     )
     Header(
       :mobile-menu-visible="isMobileMenuVisible"
-      @menu-item-click="isMobileMenuVisible = false"
+      @menu-item-click="menuItemClicked"
     )
     transition(name="fade" mode="out-in" appear)
       router-view
@@ -35,6 +35,11 @@ export default {
         this.isMobileMenuVisible = true
       } else {
         this.isMobileMenuVisible = !this.isMobileMenuVisible
+      }
+    },
+    menuItemClicked: function () {
+      if (this.isMobileMenuVisible !== null) {
+        this.isMobileMenuVisible = false
       }
     }
   }
