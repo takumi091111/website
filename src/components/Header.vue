@@ -61,7 +61,7 @@ header
           display inline-block
           width 100%
           height 100%
-          font-size 1.5em
+          font-size 1.4em
           font-weight 800
           letter-spacing 1px
           text-align center

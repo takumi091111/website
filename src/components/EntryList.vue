@@ -28,6 +28,11 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
+@import '../stylus/mixin.styl'
+
 .entry-list
   width 100%
+  margin 10px 0
+  +sp()
+    margin 0
 </style>
