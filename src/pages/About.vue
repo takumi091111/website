@@ -25,49 +25,49 @@ export default {
     return {
       skills: [
         {
-          icon: "devicon-html5-plain",
-          caption: "HTML, CSS",
-          summary: "Sass"
+          icon: 'devicon-html5-plain',
+          caption: 'HTML, CSS',
+          summary: 'Sass'
         },
         {
-          icon: "devicon-javascript-plain",
-          caption: "JavaScript",
-          summary: "Vue.js, Node.js"
+          icon: 'devicon-javascript-plain',
+          caption: 'JavaScript',
+          summary: 'Vue.js, Node.js'
         },
         {
-          icon: "devicon-php-plain",
-          caption: "PHP",
-          summary: "Slim"
+          icon: 'devicon-php-plain',
+          caption: 'PHP',
+          summary: 'Slim'
         },
         {
-          icon: "devicon-ruby-plain",
-          caption: "Ruby",
-          summary: "Sinatra, Discord Bot"
+          icon: 'devicon-ruby-plain',
+          caption: 'Ruby',
+          summary: 'Sinatra, Discord Bot'
         },
         {
-          icon: "devicon-csharp-plain",
-          caption: "C#",
-          summary: "WinForms"
+          icon: 'devicon-csharp-plain',
+          caption: 'C#',
+          summary: 'WinForms'
         },
         {
-          icon: "devicon-java-plain",
-          caption: "Java",
-          summary: "Servlet, JSP"
+          icon: 'devicon-java-plain',
+          caption: 'Java',
+          summary: 'Servlet, JSP'
         },
         {
-          icon: "devicon-mysql-plain",
-          caption: "Database",
-          summary: "MySQL, Oracle, Access"
+          icon: 'devicon-mysql-plain',
+          caption: 'Database',
+          summary: 'MySQL, Oracle, Access'
         },
         {
-          icon: "devicon-git-plain",
-          caption: "Git",
-          summary: "バージョン管理"
+          icon: 'devicon-git-plain',
+          caption: 'Git',
+          summary: 'バージョン管理'
         },
         {
-          icon: "devicon-photoshop-plain",
-          caption: "Photoshop",
-          summary: "画像編集"
+          icon: 'devicon-photoshop-plain',
+          caption: 'Photoshop',
+          summary: '画像編集'
         }
       ]
     }

@@ -48,7 +48,7 @@ export default {
       }
     },
     prev: function () {
-      if (1 < this.current) {
+      if (this.current > 1) {
         this.$emit('pagination-change', this.current - 1)
       }
     },
