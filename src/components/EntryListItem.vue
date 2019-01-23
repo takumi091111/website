@@ -48,6 +48,7 @@ export default {
   border 3px solid #F4F4E8
   box-shadow 0 1px 5px 0 rgba(106, 98, 98, 0.25)
   border-radius 10px
+  outline none
   transition border 0.2s
   h1
     +sp()
