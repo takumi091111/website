@@ -6,10 +6,33 @@
         h1 Asamac
       hr
       .social-icons
-        a.fab.fa-discord(href="#")
+        Tooltip(
+          :is-active="discordClick"
+          content="/\\sαмας#9352"
+        )
+        a.fab.fa-discord(
+          href="#"
+          @mouseenter="discordClick = !discordClick"
+          @mouseleave="discordClick = !discordClick"
+        )
         a.fab.fa-twitter(href="https://twitter.com/takumi091111")
         a.fab.fa-github(href="https://github.com/takumi091111")
 </template>
+
+<script>
+import Tooltip from './Tooltip'
+
+export default {
+  components: {
+    Tooltip
+  },
+  data () {
+    return {
+      discordClick: false
+    }
+  }
+}
+</script>
 
 <style lang="stylus" scoped>
 @import '../stylus/mixin.styl'
@@ -54,6 +77,7 @@
       display flex
       justify-content center
       align-items center
+      position relative
       padding 20px 0
       a
         +sp()
