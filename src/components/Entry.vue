@@ -64,11 +64,11 @@ export default {
   align-items center
   flex-direction column
   width 100%
-  z-index -1
   .title
     width 100%
     padding 30px 0
     color: COLORS.BLACK
+    z-index -1
     h1
       +sp()
         font-size 1.4em
@@ -113,6 +113,7 @@ export default {
       font-size 1.8em
       font-weight bold
       padding-bottom 40px
+      z-index -1
     >>> h1:nth-child(n+3)
       padding-top 40px
     >>> h2
