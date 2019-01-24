@@ -35,6 +35,7 @@ export default {
 
 <style lang="stylus" scoped>
 @import '../stylus/mixin.styl'
+@import '../stylus/colors.styl'
 
 .skill-list
   border-radius 30px
@@ -42,24 +43,24 @@ export default {
   +sp()
     margin 20px 10px
   .heading
-    background-color #252627
+    background-color: COLORS.BLACK
     text-align center
     padding 15px
     border-radius 20px 20px 0 0
     h1
-      color #F4F4E8
+      color: COLORS.WHITE
       font-weight bold
       font-size 1.8em
   .content
-    background-color #F4F4E8
+    background-color: COLORS.WHITE
     display flex
     flex-direction row
     flex-wrap wrap
     justify-content center
     align-items center
     padding 20px 0
-    border-left 3px solid #E0DAC9
-    border-right 3px solid #E0DAC9
-    border-bottom 3px solid #E0DAC9
+    border-left: 3px solid COLORS.LIGHT_GRAY
+    border-right: 3px solid COLORS.LIGHT_GRAY
+    border-bottom: 3px solid COLORS.LIGHT_GRAY
     border-radius 0 0 20px 20px
 </style>

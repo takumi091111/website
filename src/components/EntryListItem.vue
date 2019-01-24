@@ -37,16 +37,17 @@ export default {
 
 <style lang="stylus" scoped>
 @import '../stylus/mixin.styl'
+@import '../stylus/colors.styl'
 
 .entry-list-item
   &:hover
-    background-color #E0DAC9
+    background-color: COLORS.LIGHT_GRAY
   display flex
   flex-direction column
-  color #252627
+  color: COLORS.BLACK
   padding 20px
   margin 20px 0
-  border 3px solid #E0DAC9
+  border: 3px solid COLORS.LIGHT_GRAY
   border-radius 10px
   outline none
   transition all 0.2s
@@ -57,7 +58,7 @@ export default {
     font-weight bold
     text-align justify
   .date
-    color #6A6262
+    color: COLORS.DEEP_GRAY
     padding 5px 0
   .summary
     padding 10px 0

@@ -13,6 +13,7 @@
 
 <style lang="stylus" scoped>
 @import '../stylus/mixin.styl'
+@import '../stylus/colors.styl'
 
 .profile
   +sp()
@@ -38,12 +39,12 @@
       h1
         +sp()
           font-size 3em
-        color #252627
+        color: COLORS.BLACK
         font-size 3.5em
         font-weight 800
         padding 10px
     hr
-      background-color #E0DAC9
+      background-color: COLORS.LIGHT_GRAY
       width 100%
       height 3px
       border-top none
@@ -59,7 +60,7 @@
           font-size 2.3em
         &:hover
           transform: rotate(24deg)
-        color #252627
+        color: COLORS.BLACK
         font-size 2.5em
         margin 0 20px
         transition transform 0.3s

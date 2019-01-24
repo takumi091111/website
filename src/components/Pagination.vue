@@ -62,6 +62,8 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
+@import '../stylus/colors.styl'
+
 .pagination
   display flex
   justify-content center
@@ -70,17 +72,17 @@ export default {
   line-height 40px
   span
     &:hover
-      border 3px solid #E0DAC9
-    color #252627
-    border 3px solid #F4F4E8
+      border: 3px solid COLORS.LIGHT_GRAY
+    color: COLORS.BLACK
+    border: 3px solid COLORS.WHITE
     cursor pointer
     padding 0 15px
     margin 0 5px
     border-radius 100%
     transition border 0.2s
   .current
-    color #F4F4E8
-    background-color #252627
+    color: COLORS.WHITE
+    background-color: COLORS.BLACK
   .icon
     padding 12px 15px
 </style>

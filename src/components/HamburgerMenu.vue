@@ -22,6 +22,7 @@ export default {
 
 <style lang="stylus" scoped>
 @import '../stylus/mixin.styl'
+@import '../stylus/colors.styl'
 
 .hamburger-button
   &:active
@@ -42,5 +43,5 @@ export default {
   border none
   background none
   font-size 2em
-  color #252627
+  color: COLORS.BLACK
 </style>

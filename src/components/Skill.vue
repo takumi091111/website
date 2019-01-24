@@ -28,6 +28,7 @@ export default {
 
 <style lang="stylus" scoped>
 @import '../stylus/mixin.styl'
+@import '../stylus/colors.styl'
 
 .skill
   +tablet()
@@ -42,19 +43,19 @@ export default {
   i
     +sp()
       font-size 4em
-    color #252627
+    color: COLORS.BLACK
     font-size 5em
   h1
     +sp()
       font-size 1.2em
-    color #252627
+    color: COLORS.BLACK
     font-size 1.5em
     font-weight bold
     padding 10px 0 0 0
   h2
     +sp()
       font-size 1em
-    color #6A6262
+    color: COLORS.DEEP_GRAY
     font-size 1.2em
     padding 5px 0 0 0
 </style>

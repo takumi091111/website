@@ -56,6 +56,7 @@ export default {
 
 <style lang="stylus" scoped>
 @import '../stylus/mixin.styl'
+@import '../stylus/colors.styl'
 
 .entry
   display flex
@@ -67,7 +68,7 @@ export default {
   .title
     width 100%
     padding 30px 0
-    color #252627
+    color: COLORS.BLACK
     h1
       +sp()
         font-size 1.4em
@@ -78,19 +79,19 @@ export default {
         left 0
         right 0
         height 3px
-        background-color #E0DAC9
+        background-color: COLORS.LIGHT_GRAY
         border-radius 10px
       position relative
       font-size 1.8em
       font-weight bold
       padding 15px 0
     .date
-      color #6A6262
+      color: COLORS.DEEP_GRAY
       font-weight bold
   .content
     width 100%
     line-height 1.7em
-    color #252627
+    color: COLORS.BLACK
     >>> h1, >>> h2, >>> h3
       padding 20px 0
     >>> h1 + *
@@ -105,7 +106,7 @@ export default {
         left 0
         right 0
         height 3px
-        background-color #E0DAC9
+        background-color: COLORS.LIGHT_GRAY
         border-radius 10px
         margin-bottom 20px
       position relative
@@ -124,11 +125,11 @@ export default {
     >>> a
       text-decoration underline
     >>> blockquote
-      background-color #E0DAC9
+      background-color: COLORS.LIGHT_GRAY
       padding 20px 25px
       border-radius 10px
     >>> pre
-      background-color #282828
+      background-color: COLORS.GRUVBOX_BLACK
       padding 10px 15px
       border-radius 10px
       overflow-x auto
@@ -136,8 +137,8 @@ export default {
     >>> code
       font-family 'Fira Mono', 'M PLUS Rounded 1c', monospace
       font-variant-ligatures normal
-      background-color #282828
-      color #ebdbb2
+      background-color: COLORS.GRUVBOX_BLACK
+      color: COLORS.GRUVBOX_WHITE
     >>> :not(pre) > code
       padding 3px 6px
       margin 0 5px
@@ -146,7 +147,7 @@ export default {
       max-width 100%
       margin 20px 0
     >>> hr
-      background-color #E0DAC9
+      background-color: COLORS.LIGHT_GRAY
       width 100%
       height 3px
       border none

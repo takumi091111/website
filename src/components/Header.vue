@@ -38,6 +38,7 @@ export default {
 
 <style lang="stylus" scoped>
 @import '../stylus/mixin.styl'
+@import '../stylus/colors.styl'
 
 @keyframes slideIn
   0%
@@ -66,12 +67,12 @@ header
   width 100%
   height 50px
   +sp()
-    background-color #F4F4E8
+    background-color: COLORS.WHITE
     position sticky
     top 0
     min-height 60px
     max-height 240px
-    border-bottom 3px solid #E0DAC9
+    border-bottom: 3px solid COLORS.LIGHT_GRAY
     overflow hidden
   nav
     +sp()
@@ -85,10 +86,10 @@ header
       justify-content center
       li
         &:hover
-          color #F4F4E8
-          background-color #252627
-        color #252627
-        background-color #F4F4E8
+          color: COLORS.WHITE
+          background-color: COLORS.BLACK
+        color: COLORS.BLACK
+        background-color: COLORS.WHITE
         width 130px
         height 40px
         margin 10px 50px
@@ -126,5 +127,5 @@ header
     border none
     background none
     font-size 2em
-    color #252627
+    color: COLORS.BLACK
 </style>

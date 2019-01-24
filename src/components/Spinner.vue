@@ -16,6 +16,8 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
+@import '../stylus/colors.styl'
+
 .spinner
   display flex
   justify-content center
@@ -25,6 +27,6 @@ export default {
   left 0
   width 100%
   height 100%
-  background-color rgba(37, 38, 39, 0.3)
+  background-color: rgba(COLORS.BLACK, 0.3)
   z-index 1
 </style>
