@@ -63,11 +63,11 @@ export default {
   align-items center
   flex-direction column
   width 100%
+  z-index -1
   .title
     width 100%
     padding 30px 0
     color #252627
-    z-index -1
     h1
       +sp()
         font-size 1.4em
@@ -93,9 +93,8 @@ export default {
     color #252627
     >>> h1, >>> h2, >>> h3
       padding 20px 0
-    >>> h1 + * {
+    >>> h1 + *
       padding-top 0
-    }
     >>> h1
       +sp()
         font-size 1.4em
@@ -126,7 +125,6 @@ export default {
       text-decoration underline
     >>> blockquote
       background-color #E0DAC9
-      // box-shadow 0 1px 5px 0 rgba(106, 98, 98, 0.25)
       padding 20px 25px
       border-radius 10px
     >>> pre
