@@ -47,7 +47,7 @@ export default {
   color: COLORS.BLACK
   padding 20px
   margin 20px 0
-  border: 3px solid COLORS.LIGHT_GRAY
+  border: 2px solid COLORS.LIGHT_GRAY
   border-radius 10px
   outline none
   transition all 0.2s

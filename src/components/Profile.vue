@@ -46,7 +46,7 @@
     hr
       background-color: COLORS.LIGHT_GRAY
       width 100%
-      height 3px
+      height 2px
       border-top none
       border-radius 10px
       margin 5px

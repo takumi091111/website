@@ -78,7 +78,7 @@ export default {
         bottom 0
         left 0
         right 0
-        height 3px
+        height 2px
         background-color: COLORS.LIGHT_GRAY
         border-radius 10px
       position relative
@@ -105,7 +105,7 @@ export default {
         bottom 0
         left 0
         right 0
-        height 3px
+        height 2px
         background-color: COLORS.LIGHT_GRAY
         border-radius 10px
         margin-bottom 20px
@@ -150,7 +150,7 @@ export default {
     >>> hr
       background-color: COLORS.LIGHT_GRAY
       width 100%
-      height 3px
+      height 2px
       border none
       border-radius 10px
       margin 20px 0

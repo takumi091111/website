@@ -72,7 +72,7 @@ header
     top 0
     min-height 60px
     max-height 240px
-    border-bottom: 3px solid COLORS.LIGHT_GRAY
+    border-bottom: 2px solid COLORS.LIGHT_GRAY
     overflow hidden
   nav
     +sp()

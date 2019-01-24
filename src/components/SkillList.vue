@@ -59,8 +59,8 @@ export default {
     justify-content center
     align-items center
     padding 20px 0
-    border-left: 3px solid COLORS.LIGHT_GRAY
-    border-right: 3px solid COLORS.LIGHT_GRAY
-    border-bottom: 3px solid COLORS.LIGHT_GRAY
+    border-left: 2px solid COLORS.LIGHT_GRAY
+    border-right: 2px solid COLORS.LIGHT_GRAY
+    border-bottom: 2px solid COLORS.LIGHT_GRAY
     border-radius 0 0 20px 20px
 </style>
