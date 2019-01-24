@@ -7,13 +7,13 @@
       hr
       .social-icons
         Tooltip(
-          :is-active="discordClick"
+          :is-active="isDiscordIconHover"
           content="/\\sαмας#9352"
         )
         a.fab.fa-discord(
           href="#"
-          @mouseenter="discordClick = !discordClick"
-          @mouseleave="discordClick = !discordClick"
+          @mouseenter="isDiscordIconHover = !isDiscordIconHover"
+          @mouseleave="isDiscordIconHover = !isDiscordIconHover"
         )
         a.fab.fa-twitter(href="https://twitter.com/takumi091111")
         a.fab.fa-github(href="https://github.com/takumi091111")
@@ -28,7 +28,7 @@ export default {
   },
   data () {
     return {
-      discordClick: false
+      isDiscordIconHover: false
     }
   }
 }
