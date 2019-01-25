@@ -25,6 +25,12 @@ const router = new VueRouter({
       name: 'about',
       path: '/about',
       component: () => import('../pages/About')
+    },
+    {
+      path: '*',
+      redirect: {
+        path: '/'
+      }
     }
   ]
 })
