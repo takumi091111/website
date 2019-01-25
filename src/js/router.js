@@ -1,7 +1,9 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+import RouterPrefetch from 'vue-router-prefetch'
 
 Vue.use(VueRouter)
+Vue.use(RouterPrefetch)
 
 const router = new VueRouter({
   mode: 'history',
