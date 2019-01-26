@@ -34,7 +34,10 @@ const router = new VueRouter({
         path: '/'
       }
     }
-  ]
+  ],
+  scrollBehavior (_to, _from, _savedPosition) {
+    return { x: 0, y: 0 }
+  }
 })
 
 export default router
