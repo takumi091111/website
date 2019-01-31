@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import RouterPrefetch from 'vue-router-prefetch'
+import Home from '../pages/Home'
 
 Vue.use(VueRouter)
 Vue.use(RouterPrefetch)
@@ -11,7 +12,7 @@ const router = new VueRouter({
     {
       name: 'home',
       path: '/',
-      component: () => import('../pages/Home')
+      component: Home
     },
     {
       name: 'blog',
