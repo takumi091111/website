@@ -13,13 +13,13 @@
   "license": "ISC",
   "devDependencies": {
     "@babel/polyfill": "^7.2.5",
-    "@fortawesome/fontawesome-free": "^5.6.3",
-    "@vue/component-compiler-utils": "^2.5.0",
+    "@fortawesome/fontawesome-free": "^5.7.1",
+    "@vue/component-compiler-utils": "^2.5.2",
     "babel-eslint": "^10.0.1",
     "devicon": "https://github.com/konpa/devicon.git",
-    "eslint": "^5.12.1",
+    "eslint": "^5.13.0",
     "eslint-config-standard": "^12.0.0",
-    "eslint-plugin-import": "^2.15.0",
+    "eslint-plugin-import": "^2.16.0",
     "eslint-plugin-node": "^8.0.1",
     "eslint-plugin-promise": "^4.0.1",
     "eslint-plugin-standard": "^4.0.0",
@@ -27,17 +27,17 @@
     "parcel-bundler": "^1.11.0",
     "pug": "^2.0.3",
     "stylus": "^0.54.5",
-    "vue-template-compiler": "^2.5.22"
+    "vue-template-compiler": "^2.6.1"
   },
   "dependencies": {
-    "dayjs": "^1.8.0",
+    "dayjs": "^1.8.3",
     "destyle.css": "^1.0.5",
     "highlightjs": "^9.12.0",
     "marked": "^0.6.0",
-    "vue": "^2.5.22",
+    "vue": "^2.6.1",
     "vue-hot-reload-api": "^2.3.1",
     "vue-router": "^3.0.2",
-    "vue-router-prefetch": "^1.2.0",
+    "vue-router-prefetch": "^1.4.0",
     "webfontloader": "^1.6.28"
   }
 }
