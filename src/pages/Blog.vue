@@ -1,7 +1,7 @@
 <template lang="pug">
   VPage#blog
     Spinner(:is-loading="isLoading")
-    EntryList(:items="entries")
+    EntryList(:items="entries", @entry-click="isLoading = true")
     Pagination(
       v-if="0 < entries.length"
       :item-count="itemCount"

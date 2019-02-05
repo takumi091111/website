@@ -2,7 +2,7 @@
   .entry-list
     ul
       transition-group(name="fade")
-        li(v-for="item in items" :key="item.id")
+        li(v-for="item in items" :key="item.id" @click="$emit('entry-click')")
           EntryListItem(
             :entry-id="item.id"
             :title="item.title"
