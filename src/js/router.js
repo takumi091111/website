@@ -17,6 +17,7 @@ const router = new VueRouter({
     {
       name: 'blog',
       path: '/blog',
+      meta: { title: 'Blog' },
       component: () => import('../pages/Blog')
     },
     {
@@ -27,6 +28,7 @@ const router = new VueRouter({
     {
       name: 'about',
       path: '/about',
+      meta: { title: 'About' },
       component: () => import('../pages/About')
     },
     {
@@ -38,6 +40,14 @@ const router = new VueRouter({
   ],
   scrollBehavior (_to, _from, _savedPosition) {
     return { x: 0, y: 0 }
+  }
+})
+
+router.afterEach((to, _from) => {
+  if (to.meta && to.meta.title) {
+    document.title = `Asamac - ${to.meta.title}`
+  } else {
+    document.title = 'Asamac'
   }
 })
 

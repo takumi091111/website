@@ -45,6 +45,7 @@ export default {
       this.isLoading = true
       this.entry = await Api.fetchEntry(id)
       this.isLoading = false
+      document.title = `Asamac - ${this.entry.fields.title}`
     }
   }
 }
