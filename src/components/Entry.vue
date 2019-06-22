@@ -129,6 +129,7 @@ export default {
       background-color: COLORS.LIGHT_GRAY
       padding 20px 25px
       border-radius 10px
+      overflow-x: auto
     >>> pre
       background-color: COLORS.GRUVBOX_BLACK
       padding 10px 15px
