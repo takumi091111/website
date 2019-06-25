@@ -3,7 +3,19 @@
     centered
     vertical
     horizontal>
-    <SkillList :skills="skills"></SkillList>
+    <section>
+      <div class="header">
+        <h1>About me</h1>
+      </div>
+      <p>Webの開発を得意としています。</p>
+      <p>2020年3月卒業見込み、未内定です。</p>
+    </section>
+    <section>
+      <div class="header">
+        <h1>Skills</h1>
+      </div>
+      <SkillList :skills="skills"></SkillList>
+    </section>
   </Page>
 </template>
 
@@ -25,3 +37,30 @@ export default Vue.extend({
   }
 })
 </script>
+
+<style lang="postcss" scoped>
+section {
+  width: 100%;
+  & p {
+    line-height: 2em;
+    text-align: center;
+  }
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 100%;
+  padding: 20px 0;
+  margin-bottom: 20px;
+
+  border-bottom: 2px solid var(--border-color_base);
+
+  & h1 {
+    font-size: 2em;
+    font-weight: bold;
+  }
+}
+</style>

@@ -50,6 +50,7 @@ export default Vue.extend({
 
 .flex {
   display: flex;
+  flex-direction: column;
 }
 
 .h-centered {
