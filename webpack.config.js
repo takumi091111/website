@@ -89,7 +89,7 @@ const development = {
   plugins: [
     new VueLoaderPlugin(),
     new ProgressBarPlugin(),
-    new BundleAnalyzerPlugin()
+    // new BundleAnalyzerPlugin()
   ],
   devtool: '#eval-source-map'
 }

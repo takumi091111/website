@@ -30,10 +30,6 @@ export default Vue.extend({
 </script>
 
 <style lang="postcss">
-@import url('~/assets/fonts.css');
-@import url('~/styles/colors.css');
-@import url('~/styles/animate.css');
-
 html, body {
   color: var(--color_base);
   background-color: var(--background-color_base);
