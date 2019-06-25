@@ -77,6 +77,10 @@ export default Vue.extend({
     & h1 {
       font-size: 1.5em;
       font-weight: bold;
+
+      @media (max-width: 480px) {
+        font-size: 1.2em;
+      }
     }
     & .date {
       color: var(--deep-gray);

@@ -54,6 +54,10 @@ export default Vue.extend({
     font-weight: bold;
 
     padding: 20px 0 25px 0;
+
+    @media (max-width: 480px) {
+      font-size: 1.5em;
+    }
   }
 }
 </style>
