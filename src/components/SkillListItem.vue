@@ -46,7 +46,7 @@ export default Vue.extend({
   @media (max-width: 480px) {
     width: 100%;
     max-width: 100%;
-    margin: 0;
+    margin: 10px 0;
   }
   
   & .inner {
@@ -61,6 +61,7 @@ export default Vue.extend({
     align-items: center;
 
     width: 100%;
+    height: 120px;
 
     border: 2px solid;
     border-color: var(--border-color_base);
@@ -85,6 +86,7 @@ export default Vue.extend({
 
     & .right {
       display: flex;
+      justify-content: center;
       flex-direction: column;
 
       width: 200px;
