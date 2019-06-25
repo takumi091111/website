@@ -1,32 +1,41 @@
-<template lang="pug">
-  transition(name="fade")
-    .spinner(v-if="isLoading")
-      img(src="../images/spinner.svg" width="100" height="100")
+<template>
+  <transition>
+    <div class="spinner" v-if="isLoading">
+      <img src="/assets/spinner.svg" width="100" height="100" alt="Spinner">
+    </div>
+  </transition>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import Vue from 'vue'
+import '~/assets/spinner.svg'
+
+export default Vue.extend({
   props: {
     isLoading: {
       type: Boolean,
+      required: false,
       default: false
     }
   }
-}
+})
 </script>
 
-<style lang="stylus" scoped>
-@import '../stylus/colors.styl'
+<style lang="postcss" scoped>
+.spinner {
+  position: fixed;
 
-.spinner
-  display flex
-  justify-content center
-  align-items center
-  position fixed
-  top 0
-  left 0
-  width 100%
-  height 100%
-  background-color: rgba(COLORS.BLACK, 0.3)
-  z-index 1
+  background-color: rgba(37, 38, 39, 0.3);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  z-index: 2;
+}
 </style>

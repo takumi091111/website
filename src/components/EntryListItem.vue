@@ -1,65 +1,89 @@
-<template lang="pug">
-  router-link.entry-list-item(:to="{ name: 'entry', params: { id: this.entryId } }")
-    h1 {{ title }}
-    p.date {{ formatDate }}
-    p.summary {{ summary }}
+<template>
+  <li class="entry-list-item">
+    <router-link :to="routerLink">
+      <h1>{{ entry.fields.title }}</h1>
+      <p class="date">{{ entryDate }}</p>
+      <p class="summary">{{ entry.fields.summary }}</p>
+    </router-link>
+  </li>
 </template>
 
-<script>
-import dayjs from 'dayjs'
+<script lang="ts">
+import Vue, { PropType } from 'vue'
+import { Entry } from '~/interfaces/Entry'
 
-export default {
+export default Vue.extend({
   props: {
-    entryId: {
-      type: String,
-      default: ''
-    },
-    title: {
-      type: String,
-      default: ''
-    },
-    createdAt: {
-      type: String,
-      default: ''
-    },
-    summary: {
-      type: String,
-      default: ''
+    entry: {
+      type: Object as PropType<Entry>,
+      required: true
     }
   },
   computed: {
-    formatDate: function () {
-      return dayjs(this.createdAt).format('YYYY.MM.DD')
+    routerLink (): Object {
+      return {
+        name: 'entry',
+        params: {
+          id: this.entry.sys.id,
+          entry: this.entry
+        }
+      }
+    },
+    entryDate (): string {
+      const createdAt = new Date(this.entry.sys.createdAt)
+      return [
+        createdAt.getFullYear(),
+        ('0' + (createdAt.getMonth() + 1)).slice(-2),
+        ('0' + createdAt.getDate()).slice(-2)
+      ].join('.')
+    }
+  }
+})
+</script>
+
+<style lang="postcss" scoped>
+.entry-list-item {
+  &:hover {
+    color: var(--color_hover);
+    background-color: var(--background-color_hover);
+    border: 2px solid var(--border-color_hover);
+
+    & a {
+      & .date {
+        color: var(--color_hover);
+      }
+    }
+  }
+
+  width: 100%;
+  margin: 20px 0;
+
+  border: 2px solid var(--border-color_base);
+  border-radius: 10px;
+
+  transition: all 0.1s;
+
+  & a {
+    display: block;
+
+    color: inherit;
+    text-decoration: none;
+
+    width: 100%;
+    height: 100%;
+
+    padding: 20px;
+
+    & h1 {
+      font-size: 1.5em;
+      font-weight: bold;
+    }
+    & .date {
+      color: var(--deep-gray);
+    }
+    & .summary {
+      padding: 10px 0;
     }
   }
 }
-</script>
-
-<style lang="stylus" scoped>
-@import '../stylus/mixin.styl'
-@import '../stylus/colors.styl'
-
-.entry-list-item
-  &:hover
-    background-color: COLORS.LIGHT_GRAY
-  display flex
-  flex-direction column
-  color: COLORS.BLACK
-  padding 20px
-  margin 20px 0
-  border: 2px solid COLORS.LIGHT_GRAY
-  border-radius 10px
-  outline none
-  transition all 0.2s
-  h1
-    +sp()
-      font-size 1.2em
-    font-size 1.5em
-    font-weight bold
-    text-align justify
-  .date
-    color: COLORS.DEEP_GRAY
-    padding 5px 0
-  .summary
-    padding 10px 0
 </style>

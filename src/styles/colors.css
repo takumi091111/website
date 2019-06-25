@@ -1,0 +1,15 @@
+:root {
+  --white: #F4F4E8;
+  --light-gray: #EDE6D5;
+  --deep-gray: #6A6262;
+  --black: #252627;
+  --gruvbox-white: #EBDBB2;
+  --gruvbox-black: #282828;
+
+  --color_base: var(--black);
+  --color_hover: var(--white);
+  --background-color_base: var(--white);
+  --background-color_hover: var(--black);
+  --border-color_base: var(--light-gray);
+  --border-color_hover: var(--black);
+}

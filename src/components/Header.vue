@@ -1,131 +1,77 @@
-<template lang="pug">
-  header(:class="mobileMenuClass")
-    nav
-      ul
-        li(v-for="link in links" @click="$emit('menu-item-click')")
-          router-link(:to="link.url") {{ link.title }}
+<template>
+  <header>
+    <MobileHeader>
+      <MenuButton
+        @menu-button-click="onMenuButtonClick"
+        :status="menuButtonStatus">
+      </MenuButton>
+    </MobileHeader>
+    <HeaderList
+      :links="this.links"
+      :is-expanded="isExpanded"
+      @item-click="onHeaderListClick">
+    </HeaderList>
+  </header>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import Vue, { PropType } from 'vue'
+import Link from '~/interfaces/Link'
+import MobileHeader from '~/components/MobileHeader.vue'
+import MenuButton from '~/components/MenuButton.vue'
+import HeaderList from '~/components/HeaderList.vue'
+
+export default Vue.extend({
   props: {
-    mobileMenuVisible: {
-      type: Boolean,
-      default: null
-    }
+    links: Array as PropType<Array<Link>>
   },
   data () {
     return {
-      links: [
-        { title: 'HOME', url: '/' },
-        { title: 'BLOG', url: '/blog' },
-        { title: 'ABOUT', url: '/about' }
-      ]
+      isExpanded: null as boolean | null
     }
   },
   computed: {
-    mobileMenuClass: function () {
-      if (this.mobileMenuVisible === null) return ''
-      if (this.mobileMenuVisible) {
-        return 'slideIn'
-      } else {
-        return 'slideOut'
-      }
+    menuButtonStatus ():boolean {
+      return (this.isExpanded === null) ? false : this.isExpanded
     }
+  },
+  methods: {
+    onMenuButtonClick() {
+      this.isExpanded = (this.isExpanded === null) ? true : !this.isExpanded
+    },
+    onHeaderListClick() {
+      this.isExpanded = (this.isExpanded === null) ? null : false
+    }
+  },
+  components: {
+    MobileHeader,
+    MenuButton,
+    HeaderList
   }
-}
+})
 </script>
 
-<style lang="stylus" scoped>
-@import '../stylus/mixin.styl'
-@import '../stylus/colors.styl'
+<style lang="postcss" scoped>
+header {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
 
-@keyframes slideIn
-  0%
-    min-height 60px
-  100%
-    min-height 240px
-@keyframes slideOut
-  0%
-    min-height 240px
-  100%
-    min-height 60px
-.slideIn
-  +sp()
-    animation slideIn 0.5s cubic-bezier(0.645, 0.045, 0.355, 1)
-    animation-fill-mode forwards
-.slideOut
-  +sp()
-    animation slideOut 0.5s cubic-bezier(0.645, 0.045, 0.355, 1)
-    animation-fill-mode forwards
+  background-color: var(--background-color_base);
+  grid-column: 2 / 3;
+  grid-row: 1 / 2;
 
-header
-  display flex
-  flex-direction column
-  justify-content flex-start
-  align-items center
-  width 100%
-  height 50px
-  +sp()
-    background-color: COLORS.WHITE
-    position sticky
-    top 0
-    min-height 60px
-    max-height 240px
-    border-bottom: 2px solid COLORS.LIGHT_GRAY
-    overflow hidden
-  nav
-    +sp()
-      position absolute
-      top 50px
-      display flex
-      ul
-        flex-direction column
-    ul
-      display flex
-      justify-content center
-      li
-        &:hover
-          color: COLORS.WHITE
-          background-color: COLORS.BLACK
-        color: COLORS.BLACK
-        background-color: COLORS.WHITE
-        width 130px
-        height 40px
-        margin 10px 50px
-        border-radius 15px
-        line-height 40px
-        list-style none
-        transition all 0.1s
-        +tablet()
-          margin 10px 30px
-        a
-          outline none
-          display inline-block
-          width 100%
-          height 100%
-          font-size 1.4em
-          font-weight 800
-          letter-spacing 1px
-          text-align center
-          vertical-align top
-          +tablet()
-            font-size 1.3em
-  .toggle-button
-    +sp()
-      display flex
-    position fixed
-    z-index 2
-    top 5px
-    right 5px
-    display none
-    width 50px
-    height 50px
-    margin 0
-    align-items center
-    justify-content center
-    border none
-    background none
-    font-size 2em
-    color: COLORS.BLACK
+  @media (max-width: 480px) {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    justify-content: flex-end;
+
+    grid-column: 1 / 4;
+    grid-row: 1 / 2;
+    border-bottom: 2px solid var(--border-color_base);
+
+    z-index: 1;
+  }
+}
 </style>

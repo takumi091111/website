@@ -1,16 +1,21 @@
-<template lang="pug">
-  VPage#home
-    Profile
+<template>
+  <Page
+    centered
+    vertical
+    horizontal>
+    <Profile></Profile>
+  </Page>
 </template>
 
-<script>
-import VPage from '../components/VPage'
-import Profile from '../components/Profile'
+<script lang="ts">
+import Vue from 'vue'
+import Page from '~/components/Page.vue'
+import Profile from '~/components/Profile.vue'
 
-export default {
+export default Vue.extend({
   components: {
-    VPage,
+    Page,
     Profile
-  }
-}
+  }  
+})
 </script>

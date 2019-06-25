@@ -1,52 +1,56 @@
-<template lang="pug">
-  VPage#entry
-    Spinner(:is-loading="isLoading")
-    transition(name="fade")
-      Entry(
-        :title="entry.fields.title"
-        :body="entry.fields.body"
-        :created-at="entry.sys.createdAt"
-        :updated-at="entry.sys.updatedAt"
-      )
+<template>
+  <Page
+    centered
+    horizontal>
+    <Spinner :is-loading="isLoading"></Spinner>
+    <EntryView :entry="entryData" v-if="entryData"></EntryView>
+  </Page>
 </template>
 
-<script>
-import VPage from '../components/VPage'
-import Spinner from '../components/Spinner'
-import Entry from '../components/Entry'
-import Api from '../js/api'
+<script lang="ts">
+import Vue, { PropType } from 'vue'
+import { Entry } from '~/interfaces/Entry'
+import { fetchEntry } from '~/utils/api'
+import Page from '~/components/Page.vue'
+import Spinner from '~/components/Spinner.vue'
+import EntryView from '~/components/EntryView.vue'
 
-export default {
+export default Vue.extend({
   components: {
-    VPage,
+    Page,
     Spinner,
-    Entry
+    EntryView
+  },
+  props: {
+    entry: {
+      type: Object as PropType<Entry | null>,
+      required: false,
+      default: null
+    }
   },
   data () {
     return {
-      entry: {
-        sys: {
-          createdAt: '',
-          updatedAt: ''
-        },
-        fields: {
-          title: '',
-          body: ''
-        }
-      },
+      entryData: this.entry as Entry,
       isLoading: false
     }
   },
-  created () {
-    this.fetchEntry(this.$route.params.id)
+  computed: {
+    title (): string {
+      return `Asamac - ${this.entryData.fields.title}`
+    }
+  },
+  async created () {
+    if (this.entry === null) {
+      await this.fetchData(this.$route.params.id)
+    }
+    document.title = this.title
   },
   methods: {
-    fetchEntry: async function (id) {
+    async fetchData (id: string) {
       this.isLoading = true
-      this.entry = await Api.fetchEntry(id)
+      this.entryData = await fetchEntry(id)
       this.isLoading = false
-      document.title = `Asamac - ${this.entry.fields.title}`
     }
   }
-}
+})
 </script>

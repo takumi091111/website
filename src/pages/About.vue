@@ -1,67 +1,27 @@
-<template lang="pug">
-  VPage#about
-    SkillList(:skills="skills")
+<template>
+  <Page
+    centered
+    vertical
+    horizontal>
+    <SkillList :skills="skills"></SkillList>
+  </Page>
 </template>
 
-<script>
-import VPage from '../components/VPage'
-import SkillList from '../components/SkillList'
+<script lang="ts">
+import Vue from 'vue'
+import Page from '~/components/Page.vue'
+import SkillList from '~/components/SkillList.vue'
+import skills from '~/data/skills'
 
-export default {
-  components: {
-    VPage,
-    SkillList
-  },
+export default Vue.extend({
   data () {
     return {
-      skills: [
-        {
-          icon: 'devicon-html5-plain',
-          caption: 'HTML, CSS',
-          summary: 'Sass'
-        },
-        {
-          icon: 'devicon-javascript-plain',
-          caption: 'JavaScript',
-          summary: 'Vue.js, Node.js'
-        },
-        {
-          icon: 'devicon-php-plain',
-          caption: 'PHP',
-          summary: 'Slim'
-        },
-        {
-          icon: 'devicon-ruby-plain',
-          caption: 'Ruby',
-          summary: 'Sinatra, Discord Bot'
-        },
-        {
-          icon: 'devicon-csharp-plain',
-          caption: 'C#',
-          summary: 'WinForms'
-        },
-        {
-          icon: 'devicon-java-plain',
-          caption: 'Java',
-          summary: 'Servlet, JSP'
-        },
-        {
-          icon: 'devicon-mysql-plain',
-          caption: 'Database',
-          summary: 'MySQL, Oracle, Access'
-        },
-        {
-          icon: 'devicon-git-plain',
-          caption: 'Git',
-          summary: 'バージョン管理'
-        },
-        {
-          icon: 'devicon-photoshop-plain',
-          caption: 'Photoshop',
-          summary: '画像編集'
-        }
-      ]
+      skills
     }
+  },
+  components: {
+    Page,
+    SkillList
   }
-}
+})
 </script>

@@ -1,19 +1,24 @@
-<template lang="pug">
-  footer
-    p &copy; 2019 Asamac
+<template>
+  <footer>
+    <p>&copy; 2019 Asamac</p>
+  </footer>
 </template>
 
-<style lang="stylus" scoped>
-@import '../stylus/colors.styl'
+<script lang="ts">
+import Vue from 'vue'
+export default Vue.extend()
+</script>
 
-footer
-  display flex
-  align-items center
-  height 80px
-  p
-    width 100%
-    color: COLORS.BLACK
-    font-size 18px
-    font-weight bold
-    text-align center
+<style lang="postcss" scoped>
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+
+  font-size: 1.2em;
+  font-weight: bold;
+
+  grid-column: 2 / 3;
+  grid-row: 3 / 4;
+}
 </style>

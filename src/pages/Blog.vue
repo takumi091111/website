@@ -1,62 +1,77 @@
-<template lang="pug">
-  VPage#blog
-    Spinner(:is-loading="isLoading")
-    EntryList(:items="entries", @entry-click="isLoading = true")
-    Pagination(
-      v-if="0 < entries.length"
-      :item-count="itemCount"
-      :limit="limit"
-      :current="pageNumber"
-      @pagination-change="onPaginationChanged"
-    )
+<template>
+  <Page>
+    <Spinner :is-loading="isLoading"></Spinner>
+    <EntryList :entries="entries"></EntryList>
+    <Pagination
+      :current="currentIndex"
+      @back-button-click="onBackButtonClick"
+      @forward-button-click="onForwardButtonClick">
+    </Pagination>
+  </Page>
 </template>
 
-<script>
-import VPage from '../components/VPage'
-import Spinner from '../components/Spinner'
-import Pagination from '../components/Pagination'
-import EntryList from '../components/EntryList'
-import Api from '../js/api.js'
+<script lang="ts">
+import Vue from 'vue'
+import { Entries } from '~/interfaces/Entry'
+import { fetchEntries } from '~/utils/api'
+import Page from '~/components/Page.vue'
+import Spinner from '~/components/Spinner.vue'
+import EntryList from '~/components/EntryList.vue'
+import Pagination from '~/components/Pagination.vue'
 
-export default {
-  components: {
-    VPage,
-    Spinner,
-    EntryList,
-    Pagination
+const LIMIT = 10
+
+const defaultEntries: Entries = {
+  sys: {
+    type: 'Array'
   },
+  total: 0,
+  skip: 0,
+  limit: 0,
+  items: []
+}
+
+export default Vue.extend({
   data () {
     return {
-      entries: [],
-      itemCount: 0,
-      pageNumber: 1,
-      limit: 10,
+      entries: defaultEntries as Entries,
+      currentIndex: 1,
       isLoading: false
     }
   },
-  created () {
-    this.fetchEntries(this.limit)
+  computed: {
+    skip (): number {
+      return (this.currentIndex - 1) * LIMIT
+    },
+    max (): number {
+      return this.skip + LIMIT
+    }
   },
   methods: {
-    fetchEntries: async function (limit = 10, skip = 0) {
-      this.isLoading = true
-      this.entries = []
-      const entries = await Api.fetchEntries(limit, skip)
-      this.itemCount = entries.total
-      this.isLoading = false
-      this.entries = entries.items.map(item => {
-        return {
-          id: item.sys.id,
-          title: item.fields.title,
-          summary: item.fields.summary,
-          createdAt: item.sys.createdAt
-        }
-      })
+    onBackButtonClick (): void {
+      if (this.currentIndex <= 1) return
+      this.currentIndex--
+      this.fetchData(LIMIT, this.skip)
     },
-    onPaginationChanged: function (value) {
-      this.pageNumber = value
-      this.fetchEntries(this.limit, (this.pageNumber - 1) * this.limit)
+    onForwardButtonClick (): void {
+      if (this.entries.total <= this.max) return
+      this.currentIndex++
+      this.fetchData(LIMIT, this.skip)
+    },
+    async fetchData (limit = 10, skip = 0) {
+      this.isLoading = true
+      this.entries = await fetchEntries(limit, skip)
+      this.isLoading = false
     }
+  },
+  created () {
+    this.fetchData(LIMIT)
+  },
+  components: {
+    Page,
+    Spinner,
+    EntryList,
+    Pagination
   }
-}
+})
 </script>

@@ -1,88 +1,103 @@
-<template lang="pug">
-  transition(name="fade" mode="out-in")
-    .pagination
-      span.fas.fa-chevron-left.icon(@click="prev")
-      span(
-        v-for="page in pages"
-        :class="{ current: isCurrent(page) }"
-        @click="select(page)"
-      ) {{ page }}
-      span.fas.fa-chevron-right.icon(@click="next")
+<template>
+  <div class="pagination">
+    <div class="inner">
+      <button @click="onBackClick">
+        <ArrowBackIcon
+          w="25px"
+          h="25px"
+          root-class="icon">
+        </ArrowBackIcon>
+      </button>
+      <span class="current">{{ current }}</span>
+      <button @click="onForwardClick">
+        <ArrowForwardIcon
+          w="25px"
+          h="25px"
+          root-class="icon">
+        </ArrowForwardIcon>
+      </button>
+    </div>
+  </div>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import Vue from 'vue'
+import ArrowBackIcon from 'vue-ionicons/dist/ios-arrow-back.vue'
+import ArrowForwardIcon from 'vue-ionicons/dist/ios-arrow-forward.vue'
+
+export default Vue.extend({
   props: {
-    itemCount: {
-      type: Number,
-      default: 0
-    },
-    limit: {
-      type: Number,
-      default: 10
-    },
     current: {
       type: Number,
-      default: 1
-    }
-  },
-  computed: {
-    pages: function () {
-      let length = Math.ceil(this.itemCount / this.limit)
-      if (length <= 0) length = 1
-
-      const array = new Array(length)
-      for (let i = 0; i < length; i++) {
-        array[i] = i + 1
-      }
-      return array
+      required: true
     }
   },
   methods: {
-    isCurrent: function (page) {
-      return this.current === page
+    onBackClick () {
+      this.$emit('back-button-click')
     },
-    next: function () {
-      if (this.current < this.pages.length) {
-        this.$emit('pagination-change', this.current + 1)
-      }
-    },
-    prev: function () {
-      if (this.current > 1) {
-        this.$emit('pagination-change', this.current - 1)
-      }
-    },
-    select: function (page) {
-      if (this.current !== page) {
-        this.$emit('pagination-change', page)
-      }
+    onForwardClick () {
+      this.$emit('forward-button-click')
+    }
+  },
+  components: {
+    ArrowBackIcon,
+    ArrowForwardIcon
+  }
+})
+</script>
+
+<style lang="postcss" scoped>
+.pagination {
+  display: flex;
+  justify-content: center;
+
+  padding: 20px 0;
+
+  & .inner {
+    width: 100%;
+    max-width: 250px;
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    & button {
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
+    }
+
+    & .current {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      width: 40px;
+      height: 40px;
+
+      border-radius: 100%;
+
+      color: var(--color_hover);
+      background-color: var(--background-color_hover);
     }
   }
 }
-</script>
+.icon {
+  &:hover {
+    fill: var(--color_hover);
+    background-color: var(--background-color_hover);
+  }
 
-<style lang="stylus" scoped>
-@import '../stylus/colors.styl'
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-.pagination
-  display flex
-  justify-content center
-  align-items center
-  height 40px
-  line-height 40px
-  span
-    &:hover
-      border: 3px solid COLORS.LIGHT_GRAY
-    color: COLORS.BLACK
-    border: 3px solid COLORS.WHITE
-    cursor pointer
-    padding 0 15px
-    margin 0 5px
-    border-radius 100%
-    transition border 0.2s
-  .current
-    color: COLORS.WHITE
-    background-color: COLORS.BLACK
-  .icon
-    padding 12px 15px
+  width: 40px;
+  height: 40px;
+
+  fill: var(--color_base);
+
+  border-radius: 100%;
+}
 </style>

@@ -1,10 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import RouterPrefetch from 'vue-router-prefetch'
-import Home from '../pages/Home'
 
 Vue.use(VueRouter)
-Vue.use(RouterPrefetch)
 
 const router = new VueRouter({
   mode: 'history',
@@ -12,29 +9,37 @@ const router = new VueRouter({
     {
       name: 'home',
       path: '/',
-      component: Home
+      meta: {
+        title: null
+      },
+      component: () => import(/* webpackChunkName: "Home" */'~/pages/Home.vue')
     },
     {
       name: 'blog',
       path: '/blog',
-      meta: { title: 'Blog' },
-      component: () => import('../pages/Blog')
+      meta: {
+        title: 'Blog'
+      },
+      component: () => import(/* webpackChunkName: "Blog" */'~/pages/Blog.vue')
     },
     {
       name: 'entry',
       path: '/blog/:id',
-      component: () => import('../pages/BlogEntry')
+      props: true,
+      component: () => import(/* webpackChunkName: "BlogEntry" */'~/pages/BlogEntry.vue')
     },
     {
       name: 'about',
       path: '/about',
-      meta: { title: 'About' },
-      component: () => import('../pages/About')
+      meta: {
+        title: 'About'
+      },
+      component: () => import(/* webpackChunkName: "About" */'~/pages/About.vue')
     },
     {
       path: '*',
       redirect: {
-        path: '/'
+        name: 'home'
       }
     }
   ],
@@ -44,7 +49,7 @@ const router = new VueRouter({
 })
 
 router.afterEach((to, _from) => {
-  if (to.meta && to.meta.title) {
+  if (to.meta.title !== null) {
     document.title = `Asamac - ${to.meta.title}`
   } else {
     document.title = 'Asamac'

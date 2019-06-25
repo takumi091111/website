@@ -1,47 +1,45 @@
-<template lang="pug">
-  #app
-    HamburgerMenu(
-      :mobile-menu-visible="isMobileMenuVisible"
-      @hamburger-button-click="toggleMobileMenu"
-    )
-    Header(
-      :mobile-menu-visible="isMobileMenuVisible"
-      @menu-item-click="menuItemClicked"
-    )
-    transition(name="fade" mode="out-in" appear)
-      router-view
-    Footer
+<template>
+  <Layout>
+    <Header :links="links"></Header>
+    <transition>
+      <router-view></router-view>
+    </transition>
+    <Footer></Footer>
+  </Layout>
 </template>
 
-<script>
-import HamburgerMenu from './components/HamburgerMenu'
-import Header from './components/Header'
-import Footer from './components/Footer'
+<script lang="ts">
+import Vue from 'vue'
+import links from '~/data/links'
+import Layout from '~/components/Layout.vue'
+import Header from '~/components/Header.vue'
+import Footer from '~/components/Footer.vue'
 
-export default {
-  components: {
-    HamburgerMenu,
-    Header,
-    Footer
-  },
+export default Vue.extend({
   data () {
     return {
-      isMobileMenuVisible: null
+      links
     }
   },
-  methods: {
-    toggleMobileMenu: function () {
-      if (this.isMobileMenuVisible === null) {
-        this.isMobileMenuVisible = true
-      } else {
-        this.isMobileMenuVisible = !this.isMobileMenuVisible
-      }
-    },
-    menuItemClicked: function () {
-      if (this.isMobileMenuVisible !== null) {
-        this.isMobileMenuVisible = false
-      }
-    }
+  components: {
+    Layout,
+    Header,
+    Footer
   }
-}
+})
 </script>
+
+<style lang="postcss">
+@import url('~/assets/fonts.css');
+@import url('~/styles/colors.css');
+@import url('~/styles/animate.css');
+
+html, body {
+  color: var(--color_base);
+  background-color: var(--background-color_base);
+  border-color: var(--border-color_base);
+  font-family: Rounded-Mplus-1c, -apple-system, BlinkMacSystemFont, YuGothic, Meiryo, sans-serif;
+  text-rendering: optimizeLegibility;
+  font-feature-settings: 'palt' 1;
+}
+</style>

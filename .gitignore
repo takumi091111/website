@@ -1,8 +1,5 @@
 /node_modules
-/.vscode
 /dist/*
+!/dist/index.html
+!/dist/favicon.ico
 !/dist/_redirects
-/.cache
-*.lock
-*.log
-*.md
