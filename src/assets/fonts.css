@@ -2,16 +2,19 @@
   font-family: Rounded-Mplus-1c;
   src: url('./rounded-mplus-1c-regular_web.woff2') format('woff2');
   font-weight: 400;
+  font-display: swap;
 }
 @font-face {
   font-family: Rounded-Mplus-1c;
   src: url('./rounded-mplus-1c-bold_web.woff2')
        format('woff2');
   font-weight: 700;
+  font-display: swap;
 }
 @font-face {
   font-family: Rounded-Mplus-1c;
   src: url('./rounded-mplus-1c-heavy_web.woff2')
        format('woff2');
   font-weight: 800;
+  font-display: swap;
 }
