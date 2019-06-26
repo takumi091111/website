@@ -32,7 +32,7 @@ figure {
     font-size: 3.5em;
     font-weight: 800;
     @media (max-width: 480px) {
-      font-size: 3em;
+      font-size: 2.5em;
     }
   }
 }

@@ -41,7 +41,7 @@ body {
   font-feature-settings: 'palt' 1;
 
   @media (max-width: 480px) {
-    font-size: 0.9em;
+    font-size: 0.95em;
   }
 }
 </style>
