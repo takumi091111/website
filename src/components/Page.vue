@@ -22,6 +22,11 @@ export default Vue.extend({
       type: Boolean,
       required: false,
       default: false
+    },
+    column: {
+      type: Boolean,
+      required: false,
+      default: false
     }
   },
   computed: {
@@ -29,6 +34,7 @@ export default Vue.extend({
       const pageClass = ['page']
       if (this.centered) {
         pageClass.push('flex')
+        if (this.column) pageClass.push('column')
         if (this.vertical) pageClass.push('v-centered')
         if (this.horizontal) pageClass.push('h-centered')
       }
@@ -50,6 +56,9 @@ export default Vue.extend({
 
 .flex {
   display: flex;
+}
+
+.column {
   flex-direction: column;
 }
 

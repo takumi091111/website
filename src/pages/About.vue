@@ -1,5 +1,5 @@
 <template>
-  <Page centered vertical horizontal>
+  <Page centered column vertical horizontal>
     <section>
       <div class="header">
         <h1>About me</h1>
