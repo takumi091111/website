@@ -2,8 +2,12 @@
   <li class="entry-list-item">
     <router-link :to="routerLink">
       <h1>{{ entry.fields.title }}</h1>
-      <p class="date">{{ entryDate }}</p>
-      <p class="summary">{{ entry.fields.summary }}</p>
+      <p class="date">
+        {{ entryDate }}
+      </p>
+      <p class="summary">
+        {{ entry.fields.summary }}
+      </p>
     </router-link>
   </li>
 </template>
@@ -11,6 +15,14 @@
 <script lang="ts">
 import Vue, { PropType } from 'vue'
 import { Entry } from '~/interfaces/Entry'
+
+interface Location {
+  name: string
+  params: {
+    id: string
+    entry: Entry
+  }
+}
 
 export default Vue.extend({
   props: {
@@ -20,7 +32,7 @@ export default Vue.extend({
     }
   },
   computed: {
-    routerLink (): Object {
+    routerLink(): Location {
       return {
         name: 'entry',
         params: {
@@ -29,7 +41,7 @@ export default Vue.extend({
         }
       }
     },
-    entryDate (): string {
+    entryDate(): string {
       const createdAt = new Date(this.entry.sys.createdAt)
       return [
         createdAt.getFullYear(),

@@ -5,8 +5,8 @@
         v-for="(link, index) in links"
         :key="index"
         :link="link"
-        @click="onItemClick">
-      </HeaderListItem>
+        @click="onItemClick"
+      />
     </ul>
   </nav>
 </template>
@@ -17,9 +17,12 @@ import Link from '~/interfaces/Link'
 import HeaderListItem from '~/components/HeaderListItem.vue'
 
 export default Vue.extend({
+  components: {
+    HeaderListItem
+  },
   props: {
     links: {
-      type: Array as PropType<Array<Link>>,
+      type: Array as PropType<Link[]>,
       required: true
     },
     isExpanded: {
@@ -28,19 +31,16 @@ export default Vue.extend({
       default: null
     }
   },
-  methods: {
-    onItemClick () {
-      this.$emit('item-click')
-    }
-  },
   computed: {
-    menuClass (): string {
+    menuClass(): string {
       if (this.isExpanded === null) return ''
       return this.isExpanded ? 'slideIn' : 'slideOut'
     }
   },
-  components: {
-    HeaderListItem
+  methods: {
+    onItemClick() {
+      this.$emit('item-click')
+    }
   }
 })
 </script>
@@ -77,7 +77,7 @@ export default Vue.extend({
 nav {
   width: 100%;
   height: 0;
-  
+
   overflow: hidden;
 
   @media (min-width: 481px) {
@@ -98,7 +98,7 @@ nav {
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
-    
+
     @media (max-width: 480px) {
       height: 160px;
       flex-direction: column;

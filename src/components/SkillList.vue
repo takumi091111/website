@@ -1,11 +1,11 @@
 <template>
   <div class="skill-list">
     <SkillListItem
-      class="skill"
       v-for="(skill, index) in skills"
       :key="index"
-      :skill="skill">
-    </SkillListItem>
+      class="skill"
+      :skill="skill"
+    />
   </div>
 </template>
 
@@ -15,14 +15,15 @@ import Skill from '~/interfaces/Skill'
 import SkillListItem from '~/components/SkillListItem.vue'
 
 export default Vue.extend({
+  components: {
+    SkillListItem
+  },
   props: {
     skills: {
       type: Array as PropType<Skill[]>,
-      required: false
+      required: false,
+      default: []
     }
-  },
-  components: {
-    SkillListItem
   }
 })
 </script>
@@ -32,7 +33,7 @@ export default Vue.extend({
   display: flex;
   justify-content: space-around;
   align-items: center;
-  
+
   flex-direction: row;
   flex-wrap: wrap;
 }

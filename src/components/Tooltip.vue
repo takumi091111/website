@@ -1,5 +1,5 @@
 <template>
-  <div class="tooltip" v-if="isActive">
+  <div v-if="isActive" class="tooltip">
     <div class="tooltip-angle">
       <p>{{ content }}</p>
     </div>
@@ -51,13 +51,14 @@ export default Vue.extend({
 
     border-style: solid;
     border-width: 0 10px 10px 10px;
-    border-color: transparent transparent var(--background-color_hover) transparent;
+    border-color: transparent transparent var(--background-color_hover)
+      transparent;
 
     width: 5px;
     height: 10px;
     top: -10px;
     left: calc(50% - 10px);
-    
+
     & p {
       position: relative;
       top: 16px;

@@ -2,19 +2,11 @@
   <div class="pagination">
     <div class="inner">
       <button @click="onBackClick">
-        <ArrowBackIcon
-          w="25px"
-          h="25px"
-          root-class="icon">
-        </ArrowBackIcon>
+        <ArrowBackIcon w="25px" h="25px" root-class="icon" />
       </button>
       <span class="current">{{ current }}</span>
       <button @click="onForwardClick">
-        <ArrowForwardIcon
-          w="25px"
-          h="25px"
-          root-class="icon">
-        </ArrowForwardIcon>
+        <ArrowForwardIcon w="25px" h="25px" root-class="icon" />
       </button>
     </div>
   </div>
@@ -26,6 +18,10 @@ import ArrowBackIcon from 'vue-ionicons/dist/ios-arrow-back.vue'
 import ArrowForwardIcon from 'vue-ionicons/dist/ios-arrow-forward.vue'
 
 export default Vue.extend({
+  components: {
+    ArrowBackIcon,
+    ArrowForwardIcon
+  },
   props: {
     current: {
       type: Number,
@@ -33,16 +29,12 @@ export default Vue.extend({
     }
   },
   methods: {
-    onBackClick () {
+    onBackClick() {
       this.$emit('back-button-click')
     },
-    onForwardClick () {
+    onForwardClick() {
       this.$emit('forward-button-click')
     }
-  },
-  components: {
-    ArrowBackIcon,
-    ArrowForwardIcon
   }
 })
 </script>

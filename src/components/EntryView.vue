@@ -3,9 +3,9 @@
     <article>
       <EntryViewHeader
         :title="entry.fields.title"
-        :created-at="entry.sys.createdAt">
-      </EntryViewHeader>
-      <EntryViewBody :body="entry.fields.body"></EntryViewBody>
+        :created-at="entry.sys.createdAt"
+      />
+      <EntryViewBody :body="entry.fields.body" />
     </article>
   </div>
 </template>
@@ -17,15 +17,15 @@ import EntryViewHeader from '~/components/EntryViewHeader.vue'
 import EntryViewBody from '~/components/EntryViewBody.vue'
 
 export default Vue.extend({
+  components: {
+    EntryViewHeader,
+    EntryViewBody
+  },
   props: {
     entry: {
       type: Object as PropType<Entry>,
       required: true
     }
-  },
-  components: {
-    EntryViewHeader,
-    EntryViewBody
   }
 })
 </script>

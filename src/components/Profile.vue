@@ -1,7 +1,7 @@
 <template>
   <div class="profile">
-    <Avatar></Avatar>
-    <SocialIconList></SocialIconList>
+    <Avatar />
+    <SocialIconList />
   </div>
 </template>
 

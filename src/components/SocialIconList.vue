@@ -1,22 +1,13 @@
 <template>
   <div class="social-icon-list">
-    <Tooltip
-      :is-active="isDiscordIconHover"
-      content="/\sαмας#9352">
-    </Tooltip>
+    <Tooltip :is-active="isDiscordIconHover" content="/\sαмας#9352" />
     <SocialIconListItem
       icon="discord"
       @mouseenter="toggleTooltip"
-      @mouseleave="toggleTooltip">
-    </SocialIconListItem>
-    <SocialIconListItem
-      icon="twitter"
-      url="https://twitter.com/takumi091111">
-    </SocialIconListItem>
-    <SocialIconListItem
-      icon="github"
-      url="https://github.com/takumi091111">
-    </SocialIconListItem>
+      @mouseleave="toggleTooltip"
+    />
+    <SocialIconListItem icon="twitter" url="https://twitter.com/takumi091111" />
+    <SocialIconListItem icon="github" url="https://github.com/takumi091111" />
   </div>
 </template>
 
@@ -26,25 +17,25 @@ import Tooltip from '~/components/Tooltip.vue'
 import SocialIconListItem from '~/components/SocialIconListItem.vue'
 
 export default Vue.extend({
-  data () {
+  components: {
+    Tooltip,
+    SocialIconListItem
+  },
+  data() {
     return {
       isDiscordIconHover: false
     }
   },
   methods: {
-    toggleTooltip (): void {
+    toggleTooltip(): void {
       this.isDiscordIconHover = !this.isDiscordIconHover
     }
-  },
-  components: {
-    Tooltip,
-    SocialIconListItem
   }
 })
 </script>
 
 <style lang="postcss" scoped>
-.social-icon-list {  
+.social-icon-list {
   position: relative;
 
   display: flex;

@@ -1,9 +1,7 @@
 <template>
-  <Page
-    centered
-    horizontal>
-    <Spinner :is-loading="isLoading"></Spinner>
-    <EntryView :entry="entryData" v-if="entryData"></EntryView>
+  <Page centered horizontal>
+    <Spinner :is-loading="isLoading" />
+    <EntryView v-if="entryData" :entry="entryData" />
   </Page>
 </template>
 
@@ -28,25 +26,25 @@ export default Vue.extend({
       default: null
     }
   },
-  data () {
+  data() {
     return {
       entryData: this.entry as Entry,
       isLoading: false
     }
   },
   computed: {
-    title (): string {
+    title(): string {
       return `Asamac - ${this.entryData.fields.title}`
     }
   },
-  async created () {
+  async created() {
     if (this.entry === null) {
       await this.fetchData(this.$route.params.id)
     }
     document.title = this.title
   },
   methods: {
-    async fetchData (id: string) {
+    async fetchData(id: string) {
       this.isLoading = true
       this.entryData = await fetchEntry(id)
       this.isLoading = false

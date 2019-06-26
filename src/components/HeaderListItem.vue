@@ -1,6 +1,8 @@
 <template>
   <li>
-    <router-link :to="link.url" @click.native="onClick">{{ link.title }}</router-link>
+    <router-link :to="link.url" @click.native="onClick">
+      {{ link.title }}
+    </router-link>
   </li>
 </template>
 
@@ -16,7 +18,7 @@ export default Vue.extend({
     }
   },
   methods: {
-    onClick () {
+    onClick() {
       this.$emit('click')
     }
   }

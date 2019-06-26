@@ -2,7 +2,7 @@
   <div class="skill-list-item">
     <div class="inner">
       <div class="left">
-        <i :class="iconClass"></i>
+        <i :class="iconClass" />
       </div>
       <div class="right">
         <h1>{{ skill.caption }}</h1>
@@ -25,7 +25,7 @@ export default Vue.extend({
     }
   },
   computed: {
-    iconClass (): string {
+    iconClass(): string {
       return `devicon-${this.skill.icon}-plain`
     }
   }
@@ -48,7 +48,7 @@ export default Vue.extend({
     max-width: 100%;
     margin: 10px 0;
   }
-  
+
   & .inner {
     &:hover {
       color: var(--color_hover);
@@ -66,7 +66,7 @@ export default Vue.extend({
     border: 2px solid;
     border-color: var(--border-color_base);
     border-radius: 10px;
-    
+
     padding: 20px 0;
 
     transition: all 0.1s;
@@ -91,7 +91,7 @@ export default Vue.extend({
 
       width: 200px;
       height: 100%;
-      
+
       & h1 {
         font-weight: bold;
         font-size: 1.3em;

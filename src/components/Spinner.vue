@@ -1,7 +1,7 @@
 <template>
   <transition>
-    <div class="spinner" v-if="isLoading">
-      <img src="/assets/spinner.svg" width="100" height="100" alt="Spinner">
+    <div v-if="isLoading" class="spinner">
+      <img src="/assets/spinner.svg" width="100" height="100" alt="Spinner" />
     </div>
   </transition>
 </template>

@@ -1,8 +1,5 @@
 <template>
-  <Page
-    centered
-    vertical
-    horizontal>
+  <Page centered vertical horizontal>
     <section>
       <div class="header">
         <h1>About me</h1>
@@ -14,7 +11,7 @@
       <div class="header">
         <h1>Skills</h1>
       </div>
-      <SkillList :skills="skills"></SkillList>
+      <SkillList :skills="skills" />
     </section>
   </Page>
 </template>
@@ -26,14 +23,14 @@ import SkillList from '~/components/SkillList.vue'
 import skills from '~/data/skills'
 
 export default Vue.extend({
-  data () {
-    return {
-      skills
-    }
-  },
   components: {
     Page,
     SkillList
+  },
+  data() {
+    return {
+      skills
+    }
   }
 })
 </script>

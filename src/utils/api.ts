@@ -16,7 +16,4 @@ const fetchEntries = async (limit = 10, skip = 0): Promise<Entries> => {
   return response.json()
 }
 
-export {
-  fetchEntry,
-  fetchEntries
-}
+export { fetchEntry, fetchEntries }

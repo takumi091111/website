@@ -1,12 +1,12 @@
 <template>
   <Page>
-    <Spinner :is-loading="isLoading"></Spinner>
-    <EntryList :entries="entries"></EntryList>
+    <Spinner :is-loading="isLoading" />
+    <EntryList :entries="entries" />
     <Pagination
       :current="currentIndex"
       @back-button-click="onBackButtonClick"
-      @forward-button-click="onForwardButtonClick">
-    </Pagination>
+      @forward-button-click="onForwardButtonClick"
+    />
   </Page>
 </template>
 
@@ -32,7 +32,13 @@ const defaultEntries: Entries = {
 }
 
 export default Vue.extend({
-  data () {
+  components: {
+    Page,
+    Spinner,
+    EntryList,
+    Pagination
+  },
+  data() {
     return {
       entries: defaultEntries as Entries,
       currentIndex: 1,
@@ -40,38 +46,32 @@ export default Vue.extend({
     }
   },
   computed: {
-    skip (): number {
+    skip(): number {
       return (this.currentIndex - 1) * LIMIT
     },
-    max (): number {
+    max(): number {
       return this.skip + LIMIT
     }
   },
+  created() {
+    this.fetchData(LIMIT)
+  },
   methods: {
-    onBackButtonClick (): void {
+    onBackButtonClick(): void {
       if (this.currentIndex <= 1) return
       this.currentIndex--
       this.fetchData(LIMIT, this.skip)
     },
-    onForwardButtonClick (): void {
+    onForwardButtonClick(): void {
       if (this.entries.total <= this.max) return
       this.currentIndex++
       this.fetchData(LIMIT, this.skip)
     },
-    async fetchData (limit = 10, skip = 0) {
+    async fetchData(limit = 10, skip = 0) {
       this.isLoading = true
       this.entries = await fetchEntries(limit, skip)
       this.isLoading = false
     }
-  },
-  created () {
-    this.fetchData(LIMIT)
-  },
-  components: {
-    Page,
-    Spinner,
-    EntryList,
-    Pagination
   }
 })
 </script>

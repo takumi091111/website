@@ -1,17 +1,7 @@
 <template>
   <button @click="onClick">
-    <MenuIcon
-      v-if="!status"
-      w="40px"
-      h="40px"
-      root-class="icon">
-    </MenuIcon>
-    <CloseIcon
-      v-if="status"
-      w="40px"
-      h="40px"
-      root-class="icon">
-    </CloseIcon>
+    <MenuIcon v-if="!status" w="40px" h="40px" root-class="icon" />
+    <CloseIcon v-if="status" w="40px" h="40px" root-class="icon" />
   </button>
 </template>
 
@@ -21,6 +11,10 @@ import MenuIcon from 'vue-ionicons/dist/ios-menu.vue'
 import CloseIcon from 'vue-ionicons/dist/ios-close.vue'
 
 export default Vue.extend({
+  components: {
+    MenuIcon,
+    CloseIcon
+  },
   props: {
     status: {
       type: Boolean,
@@ -29,13 +23,9 @@ export default Vue.extend({
     }
   },
   methods: {
-    onClick () {
+    onClick() {
       this.$emit('menu-button-click')
     }
-  },
-  components: {
-    MenuIcon,
-    CloseIcon
   }
 })
 </script>

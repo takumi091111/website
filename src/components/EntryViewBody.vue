@@ -1,15 +1,17 @@
 <template>
-  <section class="entry-view-body" v-html="toHTML"></section>
+  <section class="entry-view-body" v-html="toHTML" />
 </template>
 
 <script lang="ts">
+/* eslint vue/no-v-html: 0 */
+
 import Vue from 'vue'
 import marked from 'marked'
 import { hljs } from '~/utils/highlight'
 import 'highlight.js/styles/gruvbox-dark.css'
 
 marked.setOptions({
-  highlight (code: string, lang: string): string {
+  highlight(code: string, lang: string): string {
     return hljs.highlightAuto(code, [lang]).value
   }
 })
@@ -22,7 +24,7 @@ export default Vue.extend({
     }
   },
   computed: {
-    toHTML (): string {
+    toHTML(): string {
       return marked(this.body)
     }
   }
@@ -60,7 +62,9 @@ export default Vue.extend({
     padding: 10px 0;
   }
 
-  & >>> p, & >>> li, & >>> ol {
+  & >>> p,
+  & >>> li,
+  & >>> ol {
     line-height: 1.8em;
   }
 

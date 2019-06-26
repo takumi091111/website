@@ -1,6 +1,8 @@
 <template>
   <section class="entry-view-header">
-    <p class="date">{{ createdDate }}</p>
+    <p class="date">
+      {{ createdDate }}
+    </p>
     <h1>{{ title }}</h1>
   </section>
 </template>
@@ -20,7 +22,7 @@ export default Vue.extend({
     }
   },
   computed: {
-    createdDate (): string {
+    createdDate(): string {
       const createdAt = new Date(this.createdAt)
       return [
         createdAt.getFullYear(),

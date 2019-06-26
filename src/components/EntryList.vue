@@ -4,12 +4,13 @@
       name="fade"
       tag="ul"
       :duration="{ enter: 500, leave: 0 }"
-      appear>
+      appear
+    >
       <EntryListItem
         v-for="entry in entries.items"
         :key="entry.sys.id"
-        :entry="entry">
-      </EntryListItem>
+        :entry="entry"
+      />
     </transition-group>
   </div>
 </template>
@@ -20,21 +21,24 @@ import { Entries } from '~/interfaces/Entry'
 import EntryListItem from '~/components/EntryListItem.vue'
 
 export default Vue.extend({
+  components: {
+    EntryListItem
+  },
   props: {
     entries: {
       type: Object as PropType<Entries>,
       required: true
     }
-  },
-  components: {
-    EntryListItem
   }
 })
 </script>
 
 <style lang="postcss" scoped>
-.fade-enter, .fade-leave, .fade-leave-active, .fade-leave-to {
-  opacity: 0
+.fade-enter,
+.fade-leave,
+.fade-leave-active,
+.fade-leave-to {
+  opacity: 0;
 }
 
 .fade-enter-active {

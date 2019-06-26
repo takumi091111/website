@@ -2,15 +2,15 @@
   <header>
     <MobileHeader>
       <MenuButton
+        :status="menuButtonStatus"
         @menu-button-click="onMenuButtonClick"
-        :status="menuButtonStatus">
-      </MenuButton>
+      />
     </MobileHeader>
     <HeaderList
-      :links="this.links"
+      :links="links"
       :is-expanded="isExpanded"
-      @item-click="onHeaderListClick">
-    </HeaderList>
+      @item-click="onHeaderListClick"
+    />
   </header>
 </template>
 
@@ -22,31 +22,35 @@ import MenuButton from '~/components/MenuButton.vue'
 import HeaderList from '~/components/HeaderList.vue'
 
 export default Vue.extend({
-  props: {
-    links: Array as PropType<Array<Link>>
+  components: {
+    MobileHeader,
+    MenuButton,
+    HeaderList
   },
-  data () {
+  props: {
+    links: {
+      type: Array as PropType<Link[]>,
+      required: true,
+      default: []
+    }
+  },
+  data() {
     return {
       isExpanded: null as boolean | null
     }
   },
   computed: {
-    menuButtonStatus ():boolean {
-      return (this.isExpanded === null) ? false : this.isExpanded
+    menuButtonStatus(): boolean {
+      return this.isExpanded === null ? false : this.isExpanded
     }
   },
   methods: {
     onMenuButtonClick() {
-      this.isExpanded = (this.isExpanded === null) ? true : !this.isExpanded
+      this.isExpanded = this.isExpanded === null ? true : !this.isExpanded
     },
     onHeaderListClick() {
-      this.isExpanded = (this.isExpanded === null) ? null : false
+      this.isExpanded = this.isExpanded === null ? null : false
     }
-  },
-  components: {
-    MobileHeader,
-    MenuButton,
-    HeaderList
   }
 })
 </script>

@@ -1,6 +1,6 @@
 <template>
   <a :href="url" @mouseenter="onMouseEnter" @mouseleave="onMouseLeave">
-    <Icon :name="iconPath" scale="2.5"></Icon>
+    <Icon :name="iconPath" scale="2.5" />
   </a>
 </template>
 
@@ -12,6 +12,9 @@ import 'vue-awesome/icons/brands/github'
 import Icon from 'vue-awesome/components/Icon.vue'
 
 export default Vue.extend({
+  components: {
+    Icon
+  },
   props: {
     icon: {
       type: String,
@@ -24,20 +27,17 @@ export default Vue.extend({
     }
   },
   computed: {
-    iconPath (): string {
+    iconPath(): string {
       return `brands/${this.icon}`
     }
   },
   methods: {
-    onMouseEnter () {
+    onMouseEnter() {
       this.$emit('mouseenter')
     },
-    onMouseLeave () {
+    onMouseLeave() {
       this.$emit('mouseleave')
     }
-  },
-  components: {
-    Icon
   }
 })
 </script>

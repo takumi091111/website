@@ -1,5 +1,6 @@
-import Vue from 'vue'
+import Vue, { VueConstructor } from 'vue'
 import VueRouter from 'vue-router'
+import { Position } from 'vue-router/types/router'
 
 Vue.use(VueRouter)
 
@@ -12,7 +13,10 @@ const router = new VueRouter({
       meta: {
         title: null
       },
-      component: () => import(/* webpackChunkName: "Home" */'~/pages/Home.vue')
+      component: (): Promise<VueConstructor> =>
+        import(/* webpackChunkName: "Home" */ '~/pages/Home.vue').then(
+          (m): VueConstructor => m.default
+        )
     },
     {
       name: 'blog',
@@ -20,13 +24,19 @@ const router = new VueRouter({
       meta: {
         title: 'Blog'
       },
-      component: () => import(/* webpackChunkName: "Blog" */'~/pages/Blog.vue')
+      component: (): Promise<VueConstructor> =>
+        import(/* webpackChunkName: "Blog" */ '~/pages/Blog.vue').then(
+          (m): VueConstructor => m.default
+        )
     },
     {
       name: 'entry',
       path: '/blog/:id',
       props: true,
-      component: () => import(/* webpackChunkName: "BlogEntry" */'~/pages/BlogEntry.vue')
+      component: (): Promise<VueConstructor> =>
+        import(
+          /* webpackChunkName: "BlogEntry" */ '~/pages/BlogEntry.vue'
+        ).then((m): VueConstructor => m.default)
     },
     {
       name: 'about',
@@ -34,7 +44,10 @@ const router = new VueRouter({
       meta: {
         title: 'About'
       },
-      component: () => import(/* webpackChunkName: "About" */'~/pages/About.vue')
+      component: (): Promise<VueConstructor> =>
+        import(/* webpackChunkName: "About" */ '~/pages/About.vue').then(
+          (m): VueConstructor => m.default
+        )
     },
     {
       path: '*',
@@ -43,12 +56,12 @@ const router = new VueRouter({
       }
     }
   ],
-  scrollBehavior (_to, _from, _savedPosition) {
+  scrollBehavior(_to, _from, _savedPosition): Position {
     return { x: 0, y: 0 }
   }
 })
 
-router.afterEach((to, _from) => {
+router.afterEach((to, _from): void => {
   if (to.meta.title !== null) {
     document.title = `Asamac - ${to.meta.title}`
   } else {

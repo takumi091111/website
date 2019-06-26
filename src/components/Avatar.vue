@@ -1,6 +1,6 @@
 <template>
   <figure>
-    <img src="~/assets/avatar.png" alt="Avatar">
+    <img src="~/assets/avatar.png" alt="Avatar" />
     <h1>Asamac</h1>
   </figure>
 </template>

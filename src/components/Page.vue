@@ -1,6 +1,6 @@
 <template>
   <div :class="pageClass">
-    <slot></slot>
+    <slot />
   </div>
 </template>
 
@@ -25,7 +25,7 @@ export default Vue.extend({
     }
   },
   computed: {
-    pageClass (): string {
+    pageClass(): string {
       const pageClass = ['page']
       if (this.centered) {
         pageClass.push('flex')
@@ -61,4 +61,3 @@ export default Vue.extend({
   align-items: center;
 }
 </style>
-

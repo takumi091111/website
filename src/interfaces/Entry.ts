@@ -3,7 +3,7 @@ export interface Entry {
     title: string
     summary: string
     body: string
-  },
+  }
   sys: {
     id: string
     type: 'Entry'
@@ -38,9 +38,9 @@ export interface Entry {
 export interface Entries {
   sys: {
     type: 'Array'
-  },
-  total: number,
-  skip: number,
-  limit: number,
+  }
+  total: number
+  skip: number
+  limit: number
   items: Entry[]
 }

@@ -1,6 +1,6 @@
 <template>
   <div class="mobile-header">
-    <slot></slot>
+    <slot />
   </div>
 </template>
 
@@ -16,7 +16,7 @@ export default Vue.extend()
   align-items: center;
 
   height: 50px;
-  
+
   @media (min-width: 481px) {
     display: none;
   }

@@ -1,9 +1,6 @@
 <template>
-  <Page
-    centered
-    vertical
-    horizontal>
-    <Profile></Profile>
+  <Page centered vertical horizontal>
+    <Profile />
   </Page>
 </template>
 
@@ -16,6 +13,6 @@ export default Vue.extend({
   components: {
     Page,
     Profile
-  }  
+  }
 })
 </script>
