@@ -39,7 +39,7 @@ export default Vue.extend({
   align-items: center;
 
   max-width: 400px;
-  height: 120px;
+  height: 100px;
 
   margin: 10px;
 
@@ -61,7 +61,7 @@ export default Vue.extend({
     align-items: center;
 
     width: 100%;
-    height: 120px;
+    height: 100px;
 
     border: 2px solid;
     border-color: var(--border-color_base);
