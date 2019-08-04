@@ -120,5 +120,9 @@ export default Vue.extend({
     border: none;
     margin: 15px 0;
   }
+
+  & >>> iframe {
+    margin: 15px 0;
+  }
 }
 </style>
