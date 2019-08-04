@@ -95,12 +95,14 @@ export default Vue.extend({
     margin: 15px 0;
     border-radius: 10px;
     overflow-x: auto;
+    text-shadow: 0px 0px 1px rgba(0, 0, 0, 0.1);
+    transform: rotate(0.028deg);
   }
 
   & >>> code {
     color: var(--gruvbox-white);
     background-color: var(--gruvbox-black);
-    font-family: 'Fira Mono', Rounded-Mplus-1c, monospace;
+    font-family: 'Fira Mono', 'M PLUS Rounded 1c', monospace;
   }
 
   & >>> :not(pre) > code {
