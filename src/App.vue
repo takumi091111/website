@@ -45,7 +45,14 @@ body {
   }
 }
 
-h1, h2, h3, h4, p, span, a, li {
+h1,
+h2,
+h3,
+h4,
+p,
+span,
+a,
+li {
   text-shadow: 0px 0px 1px rgba(0, 0, 0, 0.1);
   transform: rotate(0.028deg);
 }
