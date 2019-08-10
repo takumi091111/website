@@ -1,6 +1,6 @@
 import { Entry, Entries } from '~/interfaces/Entry'
 
-const API_URL = 'https://asamac-blog.now.sh'
+const API_URL = 'https://blog-api.asamac.now.sh'
 
 const fetchEntry = async (entryId: string): Promise<Entry> => {
   const url = new URL(`${API_URL}/entries/${entryId}`)
