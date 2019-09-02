@@ -5,7 +5,6 @@
         <h1>About me</h1>
       </div>
       <p>Webの開発を得意としています。</p>
-      <p>2020年3月卒業見込み、未内定です。</p>
     </section>
     <section>
       <div class="header">
